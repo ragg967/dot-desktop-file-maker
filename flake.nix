@@ -14,6 +14,9 @@
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           gum
+          shellcheck
+          bash-language-server
+          shfmt
         ];
 
         shellHook = ''
