@@ -20,7 +20,7 @@ STARTUPWMCLASS=""
 
 while [ "$finished" != "true" ]; do
 	clear
-	MENU=$(gum choose "Name" "Comment" "Dir" "Exec" "Icon" "Finish")
+	MENU=$(gum choose "Name" "Comment" "Dir" "Exec" "Icon" "Categorie(s)" "StartupWMClass" "Finish")
 	if [ "$MENU" = "Name" ]; then
 		echo "Name the file (without the .desktop): "
 	NAME=$(gum input --placeholder "Enter here...")
