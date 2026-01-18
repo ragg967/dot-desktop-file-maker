@@ -1,27 +1,17 @@
 {
-  description = "Project development environment/Project name";
-
-  inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
-  };
-
+  description = "Test flake";
+  
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
+    in {
       devShells.${system}.default = pkgs.mkShell {
-        packages = with pkgs; [
-          gum
-          shellcheck
-          bash-language-server
-          shfmt
-        ];
-
+        packages = [ pkgs.cowsay pkgs.fortune ];
         shellHook = ''
-          export PROJECT_ROOT=$(pwd)
-          echo "Development environment loaded!"
+          echo "Test environment loaded!"
         '';
       };
     };
