@@ -52,7 +52,7 @@ while [ "$finished" != "true" ]; do
 	fi
 	if [ "$MENU" = "Finish" ]; then
 		if gum confirm "Create desktop file?"; then
-			cat >"$HOME/.local/share/applications/{$NAME,,}.desktop" <<EOF
+		cat >"$HOME/.local/share/applications/$(echo "$NAME" | tr '[:upper:]' '[:lower:]').desktop" <<EOF
 [Desktop Entry]
 Type=Application
 Name=$NAME
